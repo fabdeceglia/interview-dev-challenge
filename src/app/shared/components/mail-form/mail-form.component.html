@@ -1,0 +1,22 @@
+<form [formGroup]="emailFormGroup">
+  <mat-form-field class="email-input" appearance="outline">
+    <mat-label>Email</mat-label>
+    <input
+      #emailInput
+      required
+      matInput
+      type="email"
+      placeholder="Ex. user@mail.com"
+      formControlName="email"
+    >
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Please compile this field
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('invalidEmail')">
+      The email is not valid
+    </mat-error>
+    <mat-hint>
+      Please provide a valid email
+    </mat-hint>
+  </mat-form-field>
+</form>

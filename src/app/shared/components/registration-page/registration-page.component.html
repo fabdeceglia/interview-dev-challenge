@@ -1,0 +1,86 @@
+<section
+  class="form-container"
+  fxLayout="column"
+  fxLayoutGap="24px"
+>
+
+  <mail-form
+    #mailForm
+    [fxShow]="currentStep === 0 || viewMode === 'FULL'"
+  >
+  </mail-form>
+
+  <mat-divider *ngIf="viewMode === 'FULL'"></mat-divider>
+
+  <nick-name-form
+    #usernameForm
+    [disabled]="usernameIsDisabled"
+    [fxShow]="currentStep === 1 || viewMode === 'FULL'"
+  >
+  </nick-name-form>
+
+  <mat-divider *ngIf="viewMode === 'FULL'"></mat-divider>
+
+  <password-form
+    #passwordForm
+    [disabled]="passwordIsDisabled"
+    [fxShow]="currentStep === 2 || viewMode === 'FULL'"
+  >
+  </password-form>
+
+  <mat-divider *ngIf="viewMode === 'FULL'"></mat-divider>
+
+  <section
+    class="steps-paginator"
+    *ngIf="viewMode === 'COMPACT'"
+    fxLayout="row"
+    fxLayoutAlign="center"
+    fxLayoutGap="12px"
+  >
+    <div
+      *ngFor="let step of steps; let last = last"
+      fxLayout="row"
+      fxLayoutGap="4px"
+    >
+      <div
+        class="step"
+        [class.current]="step.index === currentStep"
+      >
+        {{step.index + 1}}
+      </div>
+      <div class="bullet" *ngIf="!last">
+        &#8226;
+      </div>
+    </div>
+  </section>
+
+
+  <section
+    class="nav-buttons-container"
+    fxLayout="row"
+    fxLayoutGap="8px"
+    fxLayoutAlign="end"
+  >
+
+    <button
+      mat-stroked-button
+      color="primary"
+      *ngIf="viewMode === 'COMPACT'"
+      (click)="prevStep()"
+    >
+      Previous
+    </button>
+
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="onContinue()"
+    >
+      Continue
+    </button>
+
+
+  </section>
+
+
+</section>

@@ -1,0 +1,32 @@
+.form-container {
+  border: 2px solid lightgrey;
+  border-radius: 12px;
+  background: white;
+  padding: 16px;
+  width: 650px;
+}
+
+.steps-paginator {
+  .bullet {
+    color: darkgrey;
+  }
+  .step {
+    color: darkgrey;
+    font-size: 16px;
+    &.current {
+      font-size: 20px;
+      color: #673ab7;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  :host {
+    width: 100%;
+  }
+
+  .form-container {
+    padding: 24px;
+    width: auto;
+  }
+}

@@ -1,0 +1,22 @@
+<form [formGroup]="usernameFormGroup">
+  <mat-form-field class="nickname-input" appearance="outline">
+    <mat-label>Username</mat-label>
+    <input
+      required
+      matInput
+      type="text"
+      placeholder="JaneDoe90"
+      formControlName="username"
+    >
+    <mat-error *ngIf="usernameFormControl.hasError('required')">
+      Please compile this field
+    </mat-error>
+    <mat-error *ngIf="usernameFormControl.hasError('duplicatedNickName')">
+      The username is already taken
+    </mat-error>
+    <mat-hint>
+      <span *ngIf="disabled">Please compile the previous field to then define the username</span>
+      <span *ngIf="!disabled">Please provide a username</span>
+    </mat-hint>
+  </mat-form-field>
+</form>
